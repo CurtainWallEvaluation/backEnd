@@ -1,10 +1,14 @@
 package com.mqa.controller;
 
 import com.mqa.dto.TestLoginDto;
+import com.mqa.dto.RegisterDto;
 import com.mqa.entity.Result;
 import com.mqa.entity.TestLogin;
+import com.mqa.entity.Register;
+import com.mqa.exception.MyException;
 import com.mqa.properties.JwtProperties;
 import com.mqa.service.TestService;
+import com.mqa.service.RegisterService;
 import com.mqa.utils.JwtUtil;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
@@ -20,10 +24,12 @@ import java.util.Map;
 public class TestController {
 
     private final TestService testService;
+    private final RegisterService registerService;
     private final JwtProperties jwtProperties;
 
-    public TestController(TestService testService, JwtProperties jwtProperties) {
+    public TestController(TestService testService,RegisterService registerService, JwtProperties jwtProperties) {
         this.testService = testService;
+        this.registerService=registerService;
         this.jwtProperties = jwtProperties;
     }
 
@@ -53,5 +59,22 @@ public class TestController {
 
         log.info("test login over");
         return Result.success(token);
+    }
+
+    /**
+     * 注册功能
+     */
+    @PostMapping("/register")
+    public Result<String> register(@RequestBody RegisterDto registerDto) {
+        log.info("register function , params:{}",registerDto);
+
+        //执行登陆，获取数据库中的用户信息
+        boolean success = registerService.register(registerDto);
+        if(success) {
+            return Result.success();
+        }
+        else{
+            return Result.error("用户名已存在");
+        }
     }
 }

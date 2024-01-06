@@ -10,7 +10,7 @@ import lombok.Data;
 public class OriginalImage {
 
     @TableId(value = "id")
-    private Integer id;
+    private Integer originalImgID;
 
     @TableField("image_url")
     private String imageUrl;

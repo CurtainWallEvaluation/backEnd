@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -13,14 +14,17 @@ import java.util.Date;
 public class Task {
 
     @TableId(value = "id",type = IdType.AUTO)
-    private Integer id;
+    private Integer taskID;
 
     @TableField("date_time")
-    private Date dateTime;
+    private LocalDateTime dateTime;
 
     @TableField("qual_num")
     private Integer qualNum;
 
     @TableField("unqual_num")
     private Integer unqualNum;
+
+    @TableField("total_num")
+    private Integer totalNum;
 }

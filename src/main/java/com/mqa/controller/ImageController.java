@@ -1,6 +1,8 @@
 package com.mqa.controller;
 
 import com.mqa.dto.GlassStaticDto;
+import com.mqa.dto.OriginalBlocksDto;
+import com.mqa.dto.StaticDataDto;
 import com.mqa.entity.Result;
 import com.mqa.service.OriginalImageService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -21,17 +23,17 @@ public class ImageController {
     }
 
     @GetMapping("/getImgCurtainInfo/{oriImgID}")
-    public Result<String> getImgCurtainInfo(@PathVariable("oriImgID") int oriImgID) {
+    public Result<OriginalBlocksDto> getImgCurtainInfo(@PathVariable("oriImgID") int oriImgID) {
         log.info("get image curtain info, oriImgID:{}", oriImgID);
-
-        return Result.success("get image curtain info success");
+        OriginalBlocksDto resultDto=originalImageService.findImgCurtainInfo(oriImgID);
+        return Result.success(resultDto);
     }
 
     @GetMapping("/getOriImgStatic/{oriImgID}")
-    public Result<String> getOriImgStatic(@PathVariable("oriImgID") Integer oriImgID) {
+    public Result<StaticDataDto> getOriImgStatic(@PathVariable("oriImgID") Integer oriImgID) {
         log.info("get image static info, oriImgID:{}", oriImgID);
-
-        return Result.success("get image curtain info success");
+        StaticDataDto resultDto=originalImageService.findOriImgStatic(oriImgID);
+        return Result.success(resultDto);
     }
 
     @GetMapping("/getOriImgGlassStatic/{oriImgID}")

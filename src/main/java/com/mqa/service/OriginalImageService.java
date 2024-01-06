@@ -2,6 +2,7 @@ package com.mqa.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mqa.dto.GlassStaticDto;
+import com.mqa.mapper.OriginalImageMapper;
 import com.mqa.mapper.StoneImageMapper;
 import com.mqa.mapper.GlassImageMapper;
 import org.springframework.stereotype.Service;

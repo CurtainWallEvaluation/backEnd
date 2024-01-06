@@ -10,7 +10,8 @@ import com.mqa.properties.JwtProperties;
 import com.mqa.service.TestService;
 import com.mqa.service.RegisterService;
 import com.mqa.utils.JwtUtil;
-import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("/test")
-@Api(tags = "测试接口")
+@Tag(name = "测试接口")
 public class TestController {
 
     private final TestService testService;
@@ -34,6 +35,7 @@ public class TestController {
     }
 
     @GetMapping("/hello")
+    @Operation(description = "测试接口")
     public Result<String> hello() {
         log.info("test hello function");
         return Result.success("hello world");
@@ -43,6 +45,7 @@ public class TestController {
      * 测试登陆功能
      */
     @PostMapping("/login")
+    @Operation(description = "测试登陆功能")
     public Result<String> login(@RequestBody TestLoginDto testLoginDto) {
         log.info("test login function , params:{}",testLoginDto);
 

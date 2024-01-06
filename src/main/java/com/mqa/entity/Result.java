@@ -1,22 +1,22 @@
 package com.mqa.entity;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@Api("统一返回结果")
+@Tag(name = "统一返回结果")
 public class Result<T> implements Serializable {
 
-    @ApiModelProperty("1:成功 0/其他:失败")
+    @Schema(description = "1:成功 0/其他:失败")
     private Integer code;
 
-    @ApiModelProperty("返回信息")
+    @Schema(description = "返回信息")
     private String msg;
 
-    @ApiModelProperty("返回数据")
+    @Schema(description = "返回数据")
     private T data;
 
     public static <T> Result<T> success() {

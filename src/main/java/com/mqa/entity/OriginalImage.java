@@ -3,6 +3,7 @@ package com.mqa.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.mqa.dto.InputDataDto;
 import lombok.Data;
 
 @Data
@@ -26,4 +27,11 @@ public class OriginalImage {
 
     @TableField("status")
     private Integer status;
+
+    public OriginalImage(InputDataDto inputDataDto, int taskId){
+        this.imageUrl=inputDataDto.getOriginUrl();
+        this.taskId=taskId;
+        this.glassNum=inputDataDto.getGlassList().size();
+        this.stoneNum=inputDataDto.getStoneList().size();
+    }
 }

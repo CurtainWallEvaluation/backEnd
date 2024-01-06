@@ -2,7 +2,11 @@ package com.mqa.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.mqa.dto.InputStoneDto;
 import lombok.Data;
+
+import java.util.Arrays;
+import java.util.Collections;
 
 @Data
 @TableName(value="stone_image")
@@ -18,7 +22,7 @@ public class StoneImage {
     private Integer originalImageId;
 
     @TableField("stain_area")
-    private Double stainArea;
+    private int stainArea;
 
     @TableField("stain_color_differ")
     private Double stainColorDiffer;
@@ -27,13 +31,13 @@ public class StoneImage {
     private Integer crackNum;
 
     @TableField("crack_length")
-    private Double crackLength;
+    private int crackLength;
 
     @TableField("crack_max_width")
     private Double crackMaxWidth;
 
     @TableField("crack_area")
-    private Double crackArea;
+    private int crackArea;
 
     @TableField("point")
     private Double point;
@@ -52,4 +56,26 @@ public class StoneImage {
 
     @TableField("status")
     private Integer status;
+
+    public StoneImage(InputStoneDto inputStoneDto, int originalImageId) {
+        this.originalImageId = originalImageId;
+        this.stainArea = inputStoneDto.getStainsArea();
+        this.stainProportion = inputStoneDto.getProportion();
+        //通过污渍面积和污渍面积占比即可计算总面积
+        int imageArea = (int) (stainArea / stainProportion);
+        this.crackArea = inputStoneDto.getCrackArea();
+        this.crackAreaPercent = (double) (crackArea) / imageArea;
+        this.crackLength = inputStoneDto.getLength();
+        this.crackNum = inputStoneDto.getMaxWidth().length;
+        this.crackMaxWidth = 0.0;
+        for (double width : inputStoneDto.getMaxWidth()) {
+            if (width > this.crackMaxWidth) {
+                this.crackMaxWidth = width;
+            }
+        }
+        this.stoneImageUrl = inputStoneDto.getUrl();
+        this.stainColorDiffer = inputStoneDto.getColorDiffer();
+        this.lengthCaculated = (double) (crackLength) * crackLength / imageArea;
+        this.widthCaculated = (double) (crackMaxWidth) * crackMaxWidth / imageArea;
+    }
 }

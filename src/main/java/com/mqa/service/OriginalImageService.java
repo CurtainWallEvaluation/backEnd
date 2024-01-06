@@ -15,13 +15,11 @@ import java.util.List;
 
 @Service
 public class OriginalImageService {
-    private final OriginalImageMapper originalImageMapper;
     private final StoneImageMapper stoneImageMapper;
     private final GlassImageMapper glassImageMapper;
 
     @Autowired
-    public OriginalImageService(OriginalImageMapper originalImageMapper, StoneImageMapper stoneImageMapper, GlassImageMapper glassImageMapper) {
-        this.originalImageMapper = originalImageMapper;
+    public OriginalImageService(StoneImageMapper stoneImageMapper, GlassImageMapper glassImageMapper) {
         this.stoneImageMapper = stoneImageMapper;
         this.glassImageMapper = glassImageMapper;
     }

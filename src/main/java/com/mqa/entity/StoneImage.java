@@ -1,6 +1,8 @@
 package com.mqa.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.mqa.dto.InputStoneDto;
 import lombok.Data;
@@ -12,7 +14,7 @@ import java.util.Collections;
 @TableName(value="stone_image")
 public class StoneImage {
 
-    @TableField("id")
+    @TableId(value = "id",type = IdType.AUTO)
     private Integer id;
 
     @TableField("stone_image_url")
@@ -57,25 +59,37 @@ public class StoneImage {
     @TableField("status")
     private Integer status;
 
-    public StoneImage(InputStoneDto inputStoneDto, int originalImageId) {
+    public void setStoneImage(InputStoneDto inputStoneDto, int originalImageId) {
         this.originalImageId = originalImageId;
+        this.crackArea = inputStoneDto.getCrackArea();
+        this.crackLength = inputStoneDto.getLength();
+        this.crackMaxWidth = 0.0;
+        if(inputStoneDto.getMaxWidth()!=null){
+            for (double width : inputStoneDto.getMaxWidth()) {
+                if (width > this.crackMaxWidth) {
+                    this.crackMaxWidth = width;
+                }
+            }
+            this.crackNum = inputStoneDto.getMaxWidth().length;
+        }
+        else{
+            this.crackNum = 0;
+        }
         this.stainArea = inputStoneDto.getStainsArea();
         this.stainProportion = inputStoneDto.getProportion();
         //通过污渍面积和污渍面积占比即可计算总面积
-        int imageArea = (int) (stainArea / stainProportion);
-        this.crackArea = inputStoneDto.getCrackArea();
-        this.crackAreaPercent = (double) (crackArea) / imageArea;
-        this.crackLength = inputStoneDto.getLength();
-        this.crackNum = inputStoneDto.getMaxWidth().length;
-        this.crackMaxWidth = 0.0;
-        for (double width : inputStoneDto.getMaxWidth()) {
-            if (width > this.crackMaxWidth) {
-                this.crackMaxWidth = width;
-            }
+        if(stainProportion==0.0){
+            this.crackAreaPercent = -1.0;
+            this.lengthCaculated = -1.0;
+            this.widthCaculated = -1.0;
+        }
+        else{
+            int imageArea = (int) (stainArea / stainProportion);
+            this.crackAreaPercent = (double) (crackArea) / imageArea;
+            this.lengthCaculated = (double) (crackLength) * crackLength / imageArea;
+            this.widthCaculated = (double) (crackMaxWidth) * crackMaxWidth / imageArea;
         }
         this.stoneImageUrl = inputStoneDto.getUrl();
         this.stainColorDiffer = inputStoneDto.getColorDiffer();
-        this.lengthCaculated = (double) (crackLength) * crackLength / imageArea;
-        this.widthCaculated = (double) (crackMaxWidth) * crackMaxWidth / imageArea;
     }
 }

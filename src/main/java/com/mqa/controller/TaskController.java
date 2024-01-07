@@ -6,6 +6,7 @@ import com.mqa.entity.Result;
 import com.mqa.entity.Task;
 import com.mqa.service.TaskService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.websocket.server.PathParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,6 @@ public class TaskController {
         this.taskService = taskService;
     }
 
-
     @GetMapping("/getTaskInfo/{taskID}")
     public Result<Task> getTaskInfo(@PathVariable("taskID") Integer taskID) {
         log.info("get task info, taskID:{}", taskID);
@@ -42,7 +42,13 @@ public class TaskController {
     }
 
     @GetMapping("/getImgByPage")
-    public Result<List<OriginalImage>> getImgByPage(@RequestBody PageQueryDTO pageQueryDTO) {
+    public Result<List<OriginalImage>> getImgByPage(
+            @RequestParam("currentPage") Integer currentPage,
+            @RequestParam("pageSize") Integer pageSize,
+            @RequestParam("taskID") Integer taskID) {
+
+        PageQueryDTO pageQueryDTO = new PageQueryDTO(taskID, currentPage, pageSize);
+
         log.info("get img by page, params:{}", pageQueryDTO);
 
         List<OriginalImage> originalImageList = taskService.getImgByPage(pageQueryDTO);

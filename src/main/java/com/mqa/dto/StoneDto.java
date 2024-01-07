@@ -1,5 +1,6 @@
 package com.mqa.dto;
 
+import com.mqa.entity.StoneImage;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -31,5 +32,17 @@ public class StoneDto {
     private double lengthCaculate;
 
     @Schema(description = "widthCaculate")
-    private int widthCaculate;
+    private double widthCaculate;
+
+    public StoneDto(StoneImage stoneImage){
+        this.crackAreaProportion=stoneImage.getCrackAreaPercent();
+        this.crackNum=stoneImage.getCrackNum();
+        this.imageUrl=stoneImage.getStoneImageUrl();
+        this.lengthCaculate=stoneImage.getLengthCaculated();
+        this.point=stoneImage.getPoint();
+        this.stainAreaProportion=stoneImage.getStainProportion();
+        this.stainColorDiffer=stoneImage.getStainColorDiffer();
+        this.status=stoneImage.getStatus();
+        this.widthCaculate=stoneImage.getWidthCaculated();
+    }
 }

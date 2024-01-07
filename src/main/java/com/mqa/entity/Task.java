@@ -27,4 +27,11 @@ public class Task {
 
     @TableField("total_num")
     private Integer totalNum;
+
+    public void setTask(LocalDateTime dateTime, Integer qualNum, Integer unqualNum, Integer totalNum) {
+        this.dateTime = dateTime;
+        this.qualNum = qualNum;
+        this.unqualNum = unqualNum;
+        this.totalNum = totalNum;
+    }
 }

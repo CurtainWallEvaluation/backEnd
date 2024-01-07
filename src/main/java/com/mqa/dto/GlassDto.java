@@ -1,5 +1,6 @@
 package com.mqa.dto;
 
+import com.mqa.entity.GlassImage;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -13,5 +14,11 @@ public class GlassDto {
     private int status;
 
     @Schema(description = "imageUrl")
-    private boolean isImplosion;
+    private int isImplosion;
+
+    public GlassDto(GlassImage glassImage){
+        this.imageUrl=glassImage.getGlassImageUrl();
+        this.isImplosion=glassImage.getIsImplosion();
+        this.status=glassImage.getStatus();
+    }
 }

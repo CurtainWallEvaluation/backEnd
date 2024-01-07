@@ -16,6 +16,7 @@ import java.util.List;
 @Tag(name = "任务相关接口")
 @RestController
 @Slf4j
+@CrossOrigin
 public class TaskController {
     private final TaskService taskService;
 

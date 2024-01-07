@@ -18,7 +18,7 @@ public class OriginalImage {
     private String imageUrl;
 
     @TableField("task_id")
-    private Integer taskId;
+    private Integer taskID;
 
     @TableField("glass_num")
     private Integer glassNum;
@@ -29,10 +29,10 @@ public class OriginalImage {
     @TableField("status")
     private Integer status;
 
-    public void setOriginalImage(InputDataDto inputDataDto, int taskId){
+    public void setOriginalImage(InputDataDto inputDataDto, int taskID){
 
         this.imageUrl=inputDataDto.getOriginUrl();
-        this.taskId=taskId;
+        this.taskID=taskID;
         this.glassNum=inputDataDto.getGlassList().size();
         this.stoneNum=inputDataDto.getStoneList().size();
     }

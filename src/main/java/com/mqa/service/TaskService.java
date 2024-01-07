@@ -34,7 +34,7 @@ public class TaskService {
 
     public List<OriginalImage> getErrorImg(Integer taskID) {
         LambdaQueryWrapper<OriginalImage> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(OriginalImage::getTaskId, taskID);
+        queryWrapper.eq(OriginalImage::getTaskID, taskID);
         queryWrapper.eq(OriginalImage::getStatus, 0);
         return originalImageMapper.selectList(queryWrapper);
     }
@@ -42,7 +42,7 @@ public class TaskService {
     public List<OriginalImage> getImgByPage(PageQueryDTO pageQueryDTO) {
         Page<OriginalImage> page = new Page<>(pageQueryDTO.getCurrentPage(), pageQueryDTO.getPageSize());
         LambdaQueryWrapper<OriginalImage> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(OriginalImage::getTaskId, pageQueryDTO.getTaskID());
+        lambdaQueryWrapper.eq(OriginalImage::getTaskID, pageQueryDTO.getTaskID());
         page = originalImageMapper.selectPage(page, lambdaQueryWrapper);
         return page.getRecords();
     }

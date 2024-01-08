@@ -24,7 +24,7 @@ public class InputDataController {
         this.inputDataService = inputDataService;
     }
 
-    @PostMapping("/")
+    @PostMapping
     public Result<String> login(@RequestBody List<InputDataDto> inputDataDtos) {
         log.info("Receive an input");
         if(inputDataService.getInputData(inputDataDtos)) {

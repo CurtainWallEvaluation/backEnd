@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class MybatisPlusConfig {
+public class MybatisPlusConfiguration {
     /**
      * 新增分页拦截器，并设置数据库类型为mysql
      */

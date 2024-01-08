@@ -35,7 +35,7 @@ public class TaskService {
     public List<OriginalImage> getErrorImg(Integer taskID) {
         LambdaQueryWrapper<OriginalImage> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(OriginalImage::getTaskID, taskID);
-        queryWrapper.eq(OriginalImage::getStatus, 0);
+        queryWrapper.eq(OriginalImage::getStatus, 1);
         return originalImageMapper.selectList(queryWrapper);
     }
 

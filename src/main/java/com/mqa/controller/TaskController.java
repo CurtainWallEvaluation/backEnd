@@ -5,6 +5,7 @@ import com.mqa.entity.OriginalImage;
 import com.mqa.entity.Result;
 import com.mqa.entity.Task;
 import com.mqa.service.TaskService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.websocket.server.PathParam;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +28,7 @@ public class TaskController {
     }
 
     @GetMapping("/getTaskInfo/{taskID}")
+    @Operation(summary = "获取任务信息", description = "根据任务ID获取任务信息")
     public Result<Task> getTaskInfo(@PathVariable("taskID") Integer taskID) {
         log.info("get task info, taskID:{}", taskID);
 

@@ -25,7 +25,7 @@ public class InputDataController {
     }
 
     @PostMapping
-    public Result<String> login(@RequestBody List<InputDataDto> inputDataDtos) {
+    public Result<String> inputData(@RequestBody List<InputDataDto> inputDataDtos) {
         log.info("Receive an input");
         if(inputDataService.getInputData(inputDataDtos)) {
             return Result.success("Data uploaded successfully!");

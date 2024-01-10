@@ -8,6 +8,9 @@ public class InputStoneDto {
     @Schema(description = "url")
     private String url;
 
+    @Schema(description = "imgArea")
+    private int imgArea;
+
     @Schema(description = "crackArea")
     private int crackArea;
 

@@ -28,10 +28,11 @@ public class CaculateUtil {
     private static double crackAreaPercentMin;
 
     /**
-     * 计算权重，算法：熵值法
+     * 使用熵值法计算权重
      */
     public static void caculateWeight() {
         int dataSize=stainProportion.size();
+        //首先清空原来的权重值
         weight.clear();
         double[] paramMax=new double[]{0,0,0,0,0,0};
         double[] paramMin=new double[]{1e12,1e12,1e12,1e12,1e12,1e12};
@@ -120,7 +121,7 @@ public class CaculateUtil {
         }
         crackAreaPercentMax=paramMax[5];
         crackAreaPercentMin=paramMin[5];
-
+        //计算pij的值
         double[][] p=new double[dataSize][6];
         for(int j=0;j<6;j++){
             double sumNum=0;
@@ -131,6 +132,7 @@ public class CaculateUtil {
                 p[i][j]=y[i][j]/sumNum;
             }
         }
+        //计算第j个参数Ej的信息熵值
         double[] E=new double[6];
         for(int j=0;j<6;j++){
             double sum=0;
@@ -139,12 +141,13 @@ public class CaculateUtil {
             }
             E[j]=-sum/Math.log(dataSize);
         }
+        //根据信息熵的值计算权重
         double sumE=0;
         for(int j=0;j<6;j++){
             sumE+=E[j];
         }
         for(int j=0;j<6;j++){
-            weight.add((1-E[j])/(dataSize-sumE));
+            weight.add((1-E[j])/(6-sumE));
         }
     }
 

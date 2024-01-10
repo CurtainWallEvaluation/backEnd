@@ -34,7 +34,7 @@ public class InputDataService {
         this.crackWidthMapper = crackWidthMapper;
     }
 
-    public boolean getInputData(List<InputDataDto> inputDataDtos){
+    public int getInputData(List<InputDataDto> inputDataDtos){
         //每次任务开始前清空CaculateUtil中的数据
         if(CaculateUtil.stainProportion!=null) {
             CaculateUtil.stainProportion.clear();
@@ -136,6 +136,6 @@ public class InputDataService {
         task.setUnqualNum(this.unqualNum);
         taskMapper.updateById(task);
 
-        return true;
+        return taskID;
     }
 }

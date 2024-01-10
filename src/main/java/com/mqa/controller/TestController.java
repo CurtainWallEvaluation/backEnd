@@ -45,6 +45,7 @@ public class TestController {
     @Operation(description = "测试接口")
     public Result<String> hello() {
         log.info("test function");
+        Result<String> result;
         try {
             // 指定本地文件路径，这里假设文件位于src/main/resources目录下
             String filePath = "./data.json";
@@ -55,13 +56,13 @@ public class TestController {
             // 使用Jackson库进行JSON到Java对象的转换
             ObjectMapper objectMapper = new ObjectMapper();
             List<InputDataDto> inputDataList = objectMapper.readValue(resource.getInputStream(), new TypeReference<List<InputDataDto>>() {});
-            inputDataController.inputData(inputDataList);
+            result=inputDataController.inputData(inputDataList);
         } catch (Exception e) {
             // 处理异常
             e.printStackTrace();
             return null;
         }
-        return Result.success("Test success");
+        return result;
     }
 
     /**

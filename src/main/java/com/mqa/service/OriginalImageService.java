@@ -50,26 +50,26 @@ public class OriginalImageService {
         for(StoneImage stoneImage : stoneList){
             stoneNum++;
             if(stoneImage.getStatus()==0){
-                uqualNum++;
+                goodNum++;
             }
             else if(stoneImage.getStatus()==1){
                 qualNum++;
             }
             else{
-                goodNum++;
+                uqualNum++;
             }
             crackAreaPercent += stoneImage.getCrackAreaPercent();
             stainPercent += stoneImage.getStainProportion();
         }
         for(GlassImage glassImage : glassList){
             if(glassImage.getStatus()==0){
-                uqualNum++;
+                goodNum++;
             }
             else if(glassImage.getStatus()==1){
                 qualNum++;
             }
             else{
-                goodNum++;
+                uqualNum++;
             }
         }
         if(stoneNum!=0) {

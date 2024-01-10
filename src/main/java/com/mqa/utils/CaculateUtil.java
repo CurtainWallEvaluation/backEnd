@@ -4,17 +4,18 @@ import com.mqa.entity.StoneImage;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @Slf4j
 public class CaculateUtil {
-    private static ArrayList<Double> weight=new ArrayList<>();
+    private static ArrayList<Double> weight = new ArrayList<>();
 
-    public static ArrayList<Double> stainProportion=new ArrayList<>();
-    public static ArrayList<Double> stainColorDiffer=new ArrayList<>();
-    public static ArrayList<Integer> crackNum=new ArrayList<>();
-    public static ArrayList<Double> lengthCaculated=new ArrayList<>();
-    public static ArrayList<Double> widthCaculated=new ArrayList<>();
-    public static ArrayList<Double> crackAreaPercent=new ArrayList<>();
+    public static ArrayList<Double> stainProportion = new ArrayList<>();
+    public static ArrayList<Double> stainColorDiffer = new ArrayList<>();
+    public static ArrayList<Integer> crackNum = new ArrayList<>();
+    public static ArrayList<Double> lengthCaculated = new ArrayList<>();
+    public static ArrayList<Double> widthCaculated = new ArrayList<>();
+    public static ArrayList<Double> crackAreaPercent = new ArrayList<>();
     private static double stainProportionMax;
     private static double stainProportionMin;
     private static double stainColorDifferMax;
@@ -90,39 +91,48 @@ public class CaculateUtil {
         Double widthCaculated = stoneImage.getWidthCaculated();
         Double crackAreaPercent = stoneImage.getCrackAreaPercent();
 
-        matrix[0][0] = getMembership1((stainProportion - stainProportionMin) / (stainProportionMax - stainProportionMin));
-        matrix[0][1] = getMembership2((stainProportion - stainProportionMin) / (stainProportionMax - stainProportionMin));
-        matrix[0][2] = getMembership3((stainProportion - stainProportionMin) / (stainProportionMax - stainProportionMin));
-        matrix[1][0] = getMembership1((stainColorDiffer - stainColorDifferMin) / (stainColorDifferMax - stainColorDifferMin));
-        matrix[1][1] = getMembership2((stainColorDiffer - stainColorDifferMin) / (stainColorDifferMax - stainColorDifferMin));
-        matrix[1][2] = getMembership3((stainColorDiffer - stainColorDifferMin) / (stainColorDifferMax - stainColorDifferMin));
-        matrix[2][0] = getMembership1((crackNum - crackNumMin) / (crackNumMax - crackNumMin));
-        matrix[2][1] = getMembership2((crackNum - crackNumMin) / (crackNumMax - crackNumMin));
-        matrix[2][2] = getMembership3((crackNum - crackNumMin) / (crackNumMax - crackNumMin));
-        matrix[3][0] = getMembership1((lengthCaculated - lengthCaculatedMin) / (lengthCaculatedMax - lengthCaculatedMin));
-        matrix[3][1] = getMembership2((lengthCaculated - lengthCaculatedMin) / (lengthCaculatedMax - lengthCaculatedMin));
-        matrix[3][2] = getMembership3((lengthCaculated - lengthCaculatedMin) / (lengthCaculatedMax - lengthCaculatedMin));
-        matrix[4][0] = getMembership1((widthCaculated - widthCaculatedMin) / (widthCaculatedMax - widthCaculatedMin));
-        matrix[4][1] = getMembership2((widthCaculated - widthCaculatedMin) / (widthCaculatedMax - widthCaculatedMin));
-        matrix[4][2] = getMembership3((widthCaculated - widthCaculatedMin) / (widthCaculatedMax - widthCaculatedMin));
-        matrix[5][0] = getMembership1((crackAreaPercent - crackAreaPercentMin) / (crackAreaPercentMax - crackAreaPercentMin));
-        matrix[5][1] = getMembership2((crackAreaPercent - crackAreaPercentMin) / (crackAreaPercentMax - crackAreaPercentMin));
-        matrix[5][2] = getMembership3((crackAreaPercent - crackAreaPercentMin) / (crackAreaPercentMax - crackAreaPercentMin));
+        matrix[0][0] = getMembership1((stainProportionMax - stainProportion) / (stainProportionMax - stainProportionMin));
+        matrix[0][1] = getMembership2((stainProportionMax - stainProportion) / (stainProportionMax - stainProportionMin));
+        matrix[0][2] = getMembership3((stainProportionMax - stainProportion) / (stainProportionMax - stainProportionMin));
+        matrix[1][0] = getMembership1((stainColorDifferMax - stainColorDiffer) / (stainColorDifferMax - stainColorDifferMin));
+        matrix[1][1] = getMembership2((stainColorDifferMax - stainColorDiffer) / (stainColorDifferMax - stainColorDifferMin));
+        matrix[1][2] = getMembership3((stainColorDifferMax - stainColorDiffer) / (stainColorDifferMax - stainColorDifferMin));
+        matrix[2][0] = getMembership1((crackNumMax - crackNum) / (crackNumMax - crackNumMin));
+        matrix[2][1] = getMembership2((crackNumMax - crackNum) / (crackNumMax - crackNumMin));
+        matrix[2][2] = getMembership3((crackNumMax - crackNum) / (crackNumMax - crackNumMin));
+        matrix[3][0] = getMembership1((lengthCaculatedMax - lengthCaculated) / (lengthCaculatedMax - lengthCaculatedMin));
+        matrix[3][1] = getMembership2((lengthCaculatedMax - lengthCaculated) / (lengthCaculatedMax - lengthCaculatedMin));
+        matrix[3][2] = getMembership3((lengthCaculatedMax - lengthCaculated) / (lengthCaculatedMax - lengthCaculatedMin));
+        matrix[4][0] = getMembership1((widthCaculatedMax - widthCaculated) / (widthCaculatedMax - widthCaculatedMin));
+        matrix[4][1] = getMembership2((widthCaculatedMax - widthCaculated) / (widthCaculatedMax - widthCaculatedMin));
+        matrix[4][2] = getMembership3((widthCaculatedMax - widthCaculated) / (widthCaculatedMax - widthCaculatedMin));
+        matrix[5][0] = getMembership1((crackAreaPercentMax - crackAreaPercent) / (crackAreaPercentMax - crackAreaPercentMin));
+        matrix[5][1] = getMembership2((crackAreaPercentMax - crackAreaPercent) / (crackAreaPercentMax - crackAreaPercentMin));
+        matrix[5][2] = getMembership3((crackAreaPercentMax - crackAreaPercent) / (crackAreaPercentMax - crackAreaPercentMin));
 
     }
 
     private static Double getPoint() {
         evaluationResult = new ArrayList<>();
         double result;
-        for (int i = 0; i < 3; i++) {
-            result = 0.0;
-            for (int j = 0; j < 3; j++) {
-                for (int k = 0; k < 6; k++) {
-                    result += weight.get(k) * matrix[k][j];
-                }
+        //for (int i = 0; i < 3; i++) {
+        result = 0.0;
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 6; k++) {
+                result += weight.get(k) * matrix[k][j];
             }
             evaluationResult.add(result);
         }
+        //}
+        System.out.println("evaluationResult" + evaluationResult);
+        System.out.println("matrix" + Arrays.deepToString(matrix));
+        System.out.println("weight: " + weight);
+        System.out.println(stainProportionMax + "   " + stainProportionMin
+                + "   " + stainColorDifferMax + "   " + stainColorDifferMin
+                + "   " + crackNumMax + "   " + crackNumMin + "   "
+                + lengthCaculatedMax + "   " + lengthCaculatedMin
+                + "   " + widthCaculatedMax + "   " + widthCaculatedMin + "   "
+                + crackAreaPercentMax + "   " + crackAreaPercentMin);
         return evaluationResult.get(0) * resultPoint[0] + evaluationResult.get(1) * resultPoint[1] + evaluationResult.get(2) * resultPoint[2];
     }
 
@@ -133,7 +143,7 @@ public class CaculateUtil {
 
         int dataSize = stainProportion.size();
         //首先清空原来的权重值
-        if(weight!=null) {
+        if (weight != null) {
             weight.clear();
         }
         double[] paramMax = new double[]{0, 0, 0, 0, 0, 0};
@@ -231,22 +241,22 @@ public class CaculateUtil {
         }
 
         //计算第j个参数Ej的信息熵值
-        double[] E=new double[6];
-        for(int j=0;j<6;j++){
-            double sum=0;
-            for(int i=0;i<dataSize;i++){
-                sum+=p[i][j]*Math.log(p[i][j]+0.000001);
+        double[] E = new double[6];
+        for (int j = 0; j < 6; j++) {
+            double sum = 0;
+            for (int i = 0; i < dataSize; i++) {
+                sum += p[i][j] * Math.log(p[i][j] + 0.000001);
             }
             E[j] = -sum / Math.log(dataSize);
         }
 
         //根据信息熵的值计算权重
-        double sumE=0;
-        for(int j=0;j<6;j++){
-            sumE+=E[j];
+        double sumE = 0;
+        for (int j = 0; j < 6; j++) {
+            sumE += E[j];
         }
-        for(int j=0;j<6;j++){
-            weight.add((1-E[j])/(6-sumE));
+        for (int j = 0; j < 6; j++) {
+            weight.add((1 - E[j]) / (6 - sumE));
 
         }
     }

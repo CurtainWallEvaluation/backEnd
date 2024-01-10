@@ -77,6 +77,7 @@ public class InputDataService {
             OriginalImage originalImage = new OriginalImage();
             originalImage.setOriginalImage(inputDataDto, taskID);
             originalImageMapper.insert(originalImage);
+
             int oriID=originalImage.getOriginalImgID();
             //插入玻璃图片
             List<InputGlassDto> inputGlassDtos= inputDataDto.getGlassList();
@@ -121,8 +122,12 @@ public class InputDataService {
             //更新任务中的合格，不合格图片数量
             if(this.GoodOrBad){
                 this.qualNum++;
+                originalImage.setStatus(0);
+                originalImageMapper.updateById(originalImage);
             }
             else{
+                originalImage.setStatus(1);
+                originalImageMapper.updateById(originalImage);
                 this.unqualNum++;
             }
         }

@@ -41,7 +41,7 @@ public class OriginalImageService {
 
     public StaticDataDto findOriImgStatic(int oriID){
         StaticDataDto resultDto=new StaticDataDto();
-        int qualNum=0, uqualNum=0, stoneNum=0;
+        int qualNum=0, uqualNum=0, stoneNum=0,goodNum=0;
         double crackAreaPercent=0.0, stainPercent=0.0;
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq("original_image_id",oriID);
@@ -50,20 +50,26 @@ public class OriginalImageService {
         for(StoneImage stoneImage : stoneList){
             stoneNum++;
             if(stoneImage.getStatus()==0){
+                uqualNum++;
+            }
+            else if(stoneImage.getStatus()==1){
                 qualNum++;
             }
             else{
-                uqualNum++;
+                goodNum++;
             }
             crackAreaPercent += stoneImage.getCrackAreaPercent();
             stainPercent += stoneImage.getStainProportion();
         }
         for(GlassImage glassImage : glassList){
             if(glassImage.getStatus()==0){
+                uqualNum++;
+            }
+            else if(glassImage.getStatus()==1){
                 qualNum++;
             }
             else{
-                uqualNum++;
+                goodNum++;
             }
         }
         if(stoneNum!=0) {

@@ -6,6 +6,9 @@ import lombok.Data;
 @Data
 @Schema(description = "原图的数据概览计算结果参数")
 public class StaticDataDto {
+    @Schema(description = "goodNum")
+    private int goodNum;
+
     @Schema(description = "qualNum")
     private int qualNum;
 

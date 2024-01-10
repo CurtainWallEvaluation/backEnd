@@ -31,7 +31,7 @@ public class GlassImage {
         this.glassImageUrl=inputGlassDto.getUrl();
         this.isImplosion=inputGlassDto.getIsImplosion();
         if(this.isImplosion==0){
-            this.status=1;
+            this.status=2;
         }
         else{
             this.status=0;

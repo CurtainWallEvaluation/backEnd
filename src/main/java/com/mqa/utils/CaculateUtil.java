@@ -115,7 +115,6 @@ public class CaculateUtil {
     private static Double getPoint() {
         evaluationResult = new ArrayList<>();
         double result;
-        //for (int i = 0; i < 3; i++) {
         result = 0.0;
         for (int j = 0; j < 3; j++) {
             for (int k = 0; k < 6; k++) {
@@ -123,16 +122,6 @@ public class CaculateUtil {
             }
             evaluationResult.add(result);
         }
-        //}
-        System.out.println("evaluationResult" + evaluationResult);
-        System.out.println("matrix" + Arrays.deepToString(matrix));
-        System.out.println("weight: " + weight);
-        System.out.println(stainProportionMax + "   " + stainProportionMin
-                + "   " + stainColorDifferMax + "   " + stainColorDifferMin
-                + "   " + crackNumMax + "   " + crackNumMin + "   "
-                + lengthCaculatedMax + "   " + lengthCaculatedMin
-                + "   " + widthCaculatedMax + "   " + widthCaculatedMin + "   "
-                + crackAreaPercentMax + "   " + crackAreaPercentMin);
         return evaluationResult.get(0) * resultPoint[0] + evaluationResult.get(1) * resultPoint[1] + evaluationResult.get(2) * resultPoint[2];
     }
 

@@ -99,11 +99,11 @@ public class InputDataService {
                 this.point = CaculateUtil.caculatePoint(stoneImage);
                 stoneImage.setPoint(this.point);
                 //更新石材图片状态
-                if(this.point < 33){
+                if(this.point < 0.33){
                     this.GoodOrBad = false;
                     stoneImage.setStatus(2);
                 }
-                else if(this.point < 66){
+                else if(this.point < 0.66){
                     stoneImage.setStatus(1);
                 }
                 else{

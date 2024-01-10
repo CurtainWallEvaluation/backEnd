@@ -4,8 +4,6 @@ import com.mqa.dto.TestLoginDto;
 import com.mqa.dto.RegisterDto;
 import com.mqa.entity.Result;
 import com.mqa.entity.TestLogin;
-import com.mqa.entity.Register;
-import com.mqa.exception.MyException;
 import com.mqa.properties.JwtProperties;
 import com.mqa.service.TestService;
 import com.mqa.service.RegisterService;
@@ -28,16 +26,20 @@ public class TestController {
     private final RegisterService registerService;
     private final JwtProperties jwtProperties;
 
-    public TestController(TestService testService,RegisterService registerService, JwtProperties jwtProperties) {
+    private final InputDataController inputDataController;
+
+    public TestController(TestService testService, RegisterService registerService, JwtProperties jwtProperties, InputDataController inputDataController) {
         this.testService = testService;
         this.registerService=registerService;
         this.jwtProperties = jwtProperties;
+        this.inputDataController = inputDataController;
     }
 
-    @GetMapping("/hello")
+    @GetMapping
     @Operation(description = "测试接口")
     public Result<String> hello() {
         log.info("test hello function");
+        inputDataController.inputData(null);
         return Result.success("hello world");
     }
 

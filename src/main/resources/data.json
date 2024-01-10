@@ -1,0 +1,44 @@
+[
+  {
+    "originUrl": "https://origin1.com",
+    "glassList": [
+      {
+        "url": "https://11.com",
+        "isImplosion": 1
+      },
+      {
+        "url": "https://12.com",
+        "isImplosion": 0
+      }
+    ],
+    "stoneList": [
+      {
+        "url": "https://无异常11.jpg",
+        "imgArea": 20000,
+        "crackArea": 0,
+        "length": 0,
+        "width": 0.0,
+        "maxWidth": [],
+        "stainsArea": 0,
+        "proportion": 0.0,
+        "colorDiffer": 0.0
+      },
+      {
+        "url": "https://有异常12.jpg",
+        "imgArea": 20000,
+        "crackArea": 5655,
+        "length": 948,
+        "width": 5.97,
+        "maxWidth": [
+          10.2,
+          10.77,
+          6.32,
+          6.0
+        ],
+        "stainsArea": 10922,
+        "proportion": 0.559,
+        "colorDiffer": 18.264
+      }
+    ]
+  }
+]

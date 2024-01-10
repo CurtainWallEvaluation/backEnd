@@ -36,12 +36,16 @@ public class InputDataService {
 
     public boolean getInputData(List<InputDataDto> inputDataDtos){
         //每次任务开始前清空CaculateUtil中的数据
-        CaculateUtil.stainProportion.clear();
-        CaculateUtil.stainColorDiffer.clear();
-        CaculateUtil.crackNum.clear();
-        CaculateUtil.lengthCaculated.clear();
-        CaculateUtil.widthCaculated.clear();
-        CaculateUtil.crackAreaPercent.clear();
+        if(CaculateUtil.stainProportion!=null) {
+            CaculateUtil.stainProportion.clear();
+            CaculateUtil.stainColorDiffer.clear();
+        }
+        if(CaculateUtil.crackNum!=null) {
+            CaculateUtil.crackNum.clear();
+            CaculateUtil.lengthCaculated.clear();
+            CaculateUtil.widthCaculated.clear();
+            CaculateUtil.crackAreaPercent.clear();
+        }
         //插入石材图片的数据
         StoneImage tmpStoneImage=new StoneImage();
         for(InputDataDto inputDataDto : inputDataDtos){

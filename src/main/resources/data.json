@@ -1,33 +1,47 @@
 [
   {
-    "originUrl": "https://origin1.com",
+    "originUrl": "https://test-web-example.oss-cn-shanghai.aliyuncs.com/337ebb84-9fe0-4ab5-a964-74b9590e9930.JPG",
     "glassList": [
       {
-        "url": "https://11.com",
+        "url": "https://test-web-example.oss-cn-shanghai.aliyuncs.com/561dd1d7-6784-4323-bb42-efdab702e26a.jpg",
         "isImplosion": 1
       },
       {
-        "url": "https://12.com",
+        "url": "https://test-web-example.oss-cn-shanghai.aliyuncs.com/561dd1d7-6784-4323-bb42-efdab702e26a.jpg",
         "isImplosion": 0
       }
     ],
     "stoneList": [
       {
-        "url": "https://无异常11.jpg",
-        "imgArea": 20000,
-        "crackArea": 0,
-        "length": 0,
-        "width": 0.0,
-        "maxWidth": [],
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/1.png?Expires=1704893309&OSSAccessKeyId=TMP.3Key98nrp6HpmQAuZc8P4y6BSRVEv6YjJvtXpLA9ZYdEYVcuHEHqMGNDBEGX3BnvG3PhoaX3ZyWvuhqKJ5PEMG4JV6C3dK&Signature=yNGc2bjn015Xanfv8pfRbIQeqpA%3D",
+        "imgArea": 2000000,
+        "crackArea": 1887,
+        "length": 299,
+        "width": 6.31,
+        "maxWidth": [12.0],
         "stainsArea": 0,
         "proportion": 0.0,
         "colorDiffer": 0.0
       },
       {
-        "url": "https://有异常12.jpg",
-        "imgArea": 20000,
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/2.png?Expires=1704893332&OSSAccessKeyId=TMP.3Key98nrp6HpmQAuZc8P4y6BSRVEv6YjJvtXpLA9ZYdEYVcuHEHqMGNDBEGX3BnvG3PhoaX3ZyWvuhqKJ5PEMG4JV6C3dK&Signature=DoSxqFjwE%2BMXWTNvfhIBowZdqUU%3D",
+        "imgArea": 2000000,
+        "crackArea": 4957,
+        "length": 738,
+        "width": 6.72,
+        "maxWidth": [
+          4.47,
+          8.0
+        ],
+        "stainsArea": 0,
+        "proportion": 0.0,
+        "colorDiffer": 0.0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/3.png?Expires=1704893344&OSSAccessKeyId=TMP.3Key98nrp6HpmQAuZc8P4y6BSRVEv6YjJvtXpLA9ZYdEYVcuHEHqMGNDBEGX3BnvG3PhoaX3ZyWvuhqKJ5PEMG4JV6C3dK&Signature=QtTMwwqyWuA9rn13GGHi%2FVbpiS8%3D",
+        "imgArea": 2000000,
         "crackArea": 5655,
-        "length": 948,
+        "length": 8948,
         "width": 5.97,
         "maxWidth": [
           10.2,
@@ -36,8 +50,23 @@
           6.0
         ],
         "stainsArea": 10922,
-        "proportion": 0.559,
+        "proportion": 0.00559,
         "colorDiffer": 18.264
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/4.png?Expires=1704893379&OSSAccessKeyId=TMP.3Key98nrp6HpmQAuZc8P4y6BSRVEv6YjJvtXpLA9ZYdEYVcuHEHqMGNDBEGX3BnvG3PhoaX3ZyWvuhqKJ5PEMG4JV6C3dK&Signature=qCH0VozYzc69Llll4ZJ5U9M%2FfAo%3D",
+        "imgArea": 2000000,
+        "crackArea": 4348,
+        "length": 710,
+        "width": 6.12,
+        "maxWidth": [
+          6.0,
+          8.0,
+          8.25
+        ],
+        "stainsArea": 15918,
+        "proportion": 0.0078,
+        "colorDiffer": 18.584
       }
     ]
   }

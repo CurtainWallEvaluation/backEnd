@@ -7,14 +7,14 @@ import java.util.ArrayList;
 
 @Slf4j
 public class CaculateUtil {
-    private static ArrayList<Double> weight;
+    private static ArrayList<Double> weight=new ArrayList<>();
 
-    public static ArrayList<Double> stainProportion;
-    public static ArrayList<Double> stainColorDiffer;
-    public static ArrayList<Integer> crackNum;
-    public static ArrayList<Double> lengthCaculated;
-    public static ArrayList<Double> widthCaculated;
-    public static ArrayList<Double> crackAreaPercent;
+    public static ArrayList<Double> stainProportion=new ArrayList<>();
+    public static ArrayList<Double> stainColorDiffer=new ArrayList<>();
+    public static ArrayList<Integer> crackNum=new ArrayList<>();
+    public static ArrayList<Double> lengthCaculated=new ArrayList<>();
+    public static ArrayList<Double> widthCaculated=new ArrayList<>();
+    public static ArrayList<Double> crackAreaPercent=new ArrayList<>();
     private static double stainProportionMax;
     private static double stainProportionMin;
     private static double stainColorDifferMax;
@@ -133,7 +133,9 @@ public class CaculateUtil {
 
         int dataSize = stainProportion.size();
         //首先清空原来的权重值
-        weight.clear();
+        if(weight!=null) {
+            weight.clear();
+        }
         double[] paramMax = new double[]{0, 0, 0, 0, 0, 0};
         double[] paramMin = new double[]{1e12, 1e12, 1e12, 1e12, 1e12, 1e12};
         double[][] y = new double[dataSize][6];

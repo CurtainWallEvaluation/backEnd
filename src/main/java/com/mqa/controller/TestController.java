@@ -1,5 +1,7 @@
 package com.mqa.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.mqa.dto.InputDataDto;
 import com.mqa.dto.TestLoginDto;
 import com.mqa.dto.RegisterDto;
 import com.mqa.entity.Result;
@@ -12,8 +14,12 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -38,9 +44,24 @@ public class TestController {
     @GetMapping
     @Operation(description = "测试接口")
     public Result<String> hello() {
-        log.info("test hello function");
-        inputDataController.inputData(null);
-        return Result.success("hello world");
+        log.info("test function");
+        try {
+            // 指定本地文件路径，这里假设文件位于src/main/resources目录下
+            String filePath = "./data.json";
+
+            // 使用Spring的Resource加载文件
+            Resource resource = new ClassPathResource(filePath);
+
+            // 使用Jackson库进行JSON到Java对象的转换
+            ObjectMapper objectMapper = new ObjectMapper();
+            List<InputDataDto> inputDataList = objectMapper.readValue(resource.getInputStream(), new TypeReference<List<InputDataDto>>() {});
+            inputDataController.inputData(inputDataList);
+        } catch (Exception e) {
+            // 处理异常
+            e.printStackTrace();
+            return null;
+        }
+        return Result.success("Test success");
     }
 
     /**

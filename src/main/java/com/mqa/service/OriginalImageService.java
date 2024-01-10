@@ -93,7 +93,7 @@ public class OriginalImageService {
             GlassDto glassDto=new GlassDto(glassImage);
             glassDtos.add(glassDto);
         }
-        resultDto.setStontList(stoneDtos);
+        resultDto.setStoneList(stoneDtos);
         resultDto.setGlassList(glassDtos);
         return resultDto;
     }

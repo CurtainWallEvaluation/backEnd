@@ -59,6 +59,9 @@ public class StoneImage {
     @TableField("status")
     private Integer status;
 
+    @TableField("image_area")
+    private Integer imageArea;
+
     public void setStoneImage(InputStoneDto inputStoneDto, int originalImageId) {
         this.originalImageId = originalImageId;
         this.crackArea = inputStoneDto.getCrackArea();
@@ -77,18 +80,10 @@ public class StoneImage {
         }
         this.stainArea = inputStoneDto.getStainsArea();
         this.stainProportion = inputStoneDto.getProportion();
-        //通过污渍面积和污渍面积占比即可计算总面积
-        if(stainProportion==0.0){
-            this.crackAreaPercent = -1.0;
-            this.lengthCaculated = -1.0;
-            this.widthCaculated = -1.0;
-        }
-        else{
-            int imageArea = (int) (stainArea / stainProportion);
-            this.crackAreaPercent = (double) (crackArea) / imageArea;
-            this.lengthCaculated = (double) (crackLength) * crackLength / imageArea;
-            this.widthCaculated = (double) (crackMaxWidth) * crackMaxWidth / imageArea;
-        }
+        this.imageArea = inputStoneDto.getImgArea();
+        this.crackAreaPercent = (double) (crackArea) / imageArea;
+        this.lengthCaculated = (double) (crackLength) * crackLength / imageArea;
+        this.widthCaculated = (double) (crackMaxWidth) * crackMaxWidth / imageArea;
         this.stoneImageUrl = inputStoneDto.getUrl();
         this.stainColorDiffer = inputStoneDto.getColorDiffer();
     }

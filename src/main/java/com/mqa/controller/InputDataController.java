@@ -27,8 +27,9 @@ public class InputDataController {
     @PostMapping
     public Result<String> inputData(@RequestBody List<InputDataDto> inputDataDtos) {
         log.info("Receive an input");
-        if(inputDataService.getInputData(inputDataDtos)) {
-            return Result.success("Data uploaded successfully!");
+        Integer taskID=inputDataService.getInputData(inputDataDtos);
+        if(taskID!=0) {
+            return Result.success(taskID.toString());
         }
         else{
             return Result.error("Data input failed!");

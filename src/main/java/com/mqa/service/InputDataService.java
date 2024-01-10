@@ -26,7 +26,7 @@ public class InputDataService {
     private Double point;
 
     @Autowired
-    public InputDataService(OriginalImageMapper originalImageMapper, StoneImageMapper stoneImageMapper, GlassImageMapper glassImageMapper, TaskMapper taskMapper, CrackWidthMapper crackWidthMapper, CaculateUtil caculateUtil) {
+    public InputDataService(OriginalImageMapper originalImageMapper, StoneImageMapper stoneImageMapper, GlassImageMapper glassImageMapper, TaskMapper taskMapper, CrackWidthMapper crackWidthMapper) {
         this.originalImageMapper = originalImageMapper;
         this.stoneImageMapper = stoneImageMapper;
         this.glassImageMapper = glassImageMapper;

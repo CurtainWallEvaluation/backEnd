@@ -127,10 +127,12 @@ public class CaculateUtil {
     }
 
     /**
-     * 计算权重，算法：熵值法
+     * 使用熵值法计算权重
      */
     public static void caculateWeight() {
+
         int dataSize = stainProportion.size();
+        //首先清空原来的权重值
         weight.clear();
         double[] paramMax = new double[]{0, 0, 0, 0, 0, 0};
         double[] paramMin = new double[]{1e12, 1e12, 1e12, 1e12, 1e12, 1e12};
@@ -211,6 +213,7 @@ public class CaculateUtil {
         for (int i = 0; i < dataSize; i++) {
             y[i][5] = (paramMax[5] - crackAreaPercent.get(i)) / (paramMax[5] - paramMin[5]);
         }
+
         crackAreaPercentMax = paramMax[5];
         crackAreaPercentMin = paramMin[5];
 
@@ -224,20 +227,25 @@ public class CaculateUtil {
                 p[i][j] = y[i][j] / sumNum;
             }
         }
-        double[] E = new double[6];
-        for (int j = 0; j < 6; j++) {
-            double sum = 0;
-            for (int i = 0; i < dataSize; i++) {
-                sum += p[i][j] * Math.log(p[i][j] + 0.000001);
+
+        //计算第j个参数Ej的信息熵值
+        double[] E=new double[6];
+        for(int j=0;j<6;j++){
+            double sum=0;
+            for(int i=0;i<dataSize;i++){
+                sum+=p[i][j]*Math.log(p[i][j]+0.000001);
             }
             E[j] = -sum / Math.log(dataSize);
         }
-        double sumE = 0;
-        for (int j = 0; j < 6; j++) {
-            sumE += E[j];
+
+        //根据信息熵的值计算权重
+        double sumE=0;
+        for(int j=0;j<6;j++){
+            sumE+=E[j];
         }
-        for (int j = 0; j < 6; j++) {
-            weight.add((1 - E[j]) / (dataSize - sumE));
+        for(int j=0;j<6;j++){
+            weight.add((1-E[j])/(6-sumE));
+
         }
     }
 

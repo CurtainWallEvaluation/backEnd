@@ -78,6 +78,7 @@ public class OriginalImageService {
         }
         resultDto.setQualNum(qualNum);
         resultDto.setUqualNum(uqualNum);
+        resultDto.setGoodNum(goodNum);
         resultDto.setStainPercent(stainPercent);
         resultDto.setCrackAreaPercent(crackAreaPercent);
         return resultDto;

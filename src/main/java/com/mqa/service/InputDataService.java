@@ -106,7 +106,7 @@ public class InputDataService {
                     this.GoodOrBad = false;
                     stoneImage.setStatus(2);
                 }
-                else if(this.point <= 0.80){
+                else if(this.point < 0.80){
                     stoneImage.setStatus(1);
                 }
                 else{

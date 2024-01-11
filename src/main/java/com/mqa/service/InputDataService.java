@@ -35,6 +35,9 @@ public class InputDataService {
     }
 
     public int getInputData(List<InputDataDto> inputDataDtos){
+        qualNum = 0;
+        unqualNum = 0;
+
         //每次任务开始前清空CaculateUtil中的数据
         if(CaculateUtil.stainProportion!=null) {
             CaculateUtil.stainProportion.clear();

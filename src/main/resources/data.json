@@ -1,6 +1,6 @@
 [
   {
-    "originUrl": "https://test-web-example.oss-cn-shanghai.aliyuncs.com/337ebb84-9fe0-4ab5-a964-74b9590e9930.JPG",
+    "originUrl": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/7.png",
     "glassList": [
       {
         "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/5.png",
@@ -67,6 +67,95 @@
         "stainsArea": 15918,
         "proportion": 0.0078,
         "colorDiffer": 18.584
+      }
+    ]
+  },
+  {
+    "originUrl": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/8.png",
+    "glassList": [
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/2294_2223.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/257_1961.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/3081_3.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/310_3344.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/3277_3417.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/347_2980.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/349_1827.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/3630_2355.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/3672_2.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/3749_2125.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/3929_2331.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/4037_3013.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/418_2520.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/4602_3415.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/4684_3.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/4745_2263.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/4752_3175.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/4764_1.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/4770_2214.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/4801_3643.jpg",
+        "isImplosion": 0
+      },
+      {
+        "url": "https://curtain-wall-evaluation.oss-cn-shanghai.aliyuncs.com/6.jpg",
+        "isImplosion": 0
       }
     ]
   }

@@ -44,7 +44,7 @@ public class CaculateUtil {
     private static final Double c = 1.0;
 
     private static ArrayList<Double> evaluationResult;
-    private static final Double[] resultPoint = {0.4, 0.3, 0.3};
+    private static final Double[] resultPoint = {0.0, 0.3, 0.7};
 
     /**
      * 计算隶属度函数
@@ -142,7 +142,8 @@ public class CaculateUtil {
         for (double param : stainProportion) {
             if (param > paramMax[0]) {
                 paramMax[0] = param;
-            } else if (param < paramMin[0]) {
+            }
+            if (param < paramMin[0]) {
                 paramMin[0] = param;
             }
         }
@@ -155,7 +156,8 @@ public class CaculateUtil {
         for (double param : stainColorDiffer) {
             if (param > paramMax[1]) {
                 paramMax[1] = param;
-            } else if (param < paramMin[1]) {
+            }
+            if (param < paramMin[1]) {
                 paramMin[1] = param;
             }
         }
@@ -168,7 +170,8 @@ public class CaculateUtil {
         for (double param : crackNum) {
             if ((double) param > paramMax[2]) {
                 paramMax[2] = (double) param;
-            } else if ((double) param < paramMin[2]) {
+            }
+            if ((double) param < paramMin[2]) {
                 paramMin[2] = (double) param;
             }
         }
@@ -177,11 +180,13 @@ public class CaculateUtil {
         }
         crackNumMax = paramMax[2];
         crackNumMin = paramMin[2];
+        log.info(String.valueOf(crackNumMin));
         //第四个参数：裂缝长度平方与面积的比值
         for (double param : lengthCaculated) {
             if (param > paramMax[3]) {
                 paramMax[3] = param;
-            } else if (param < paramMin[3]) {
+            }
+            if (param < paramMin[3]) {
                 paramMin[3] = param;
             }
         }
@@ -194,7 +199,8 @@ public class CaculateUtil {
         for (double param : widthCaculated) {
             if (param > paramMax[4]) {
                 paramMax[4] = param;
-            } else if (param < paramMin[4]) {
+            }
+            if (param < paramMin[4]) {
                 paramMin[4] = param;
             }
         }
@@ -207,7 +213,8 @@ public class CaculateUtil {
         for (double param : crackAreaPercent) {
             if (param > paramMax[5]) {
                 paramMax[5] = param;
-            } else if (param < paramMin[5]) {
+            }
+            if (param < paramMin[5]) {
                 paramMin[5] = param;
             }
         }

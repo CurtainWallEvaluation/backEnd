@@ -4,7 +4,6 @@ import com.mqa.entity.StoneImage;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 @Slf4j
 public class CaculateUtil {
@@ -44,7 +43,7 @@ public class CaculateUtil {
     private static final Double c = 1.0;
 
     private static ArrayList<Double> evaluationResult;
-    private static final Double[] resultPoint = {0.0, 0.3, 0.7};
+    private static final Double[] resultPoint = {0.0, 0.6, 1.0};
 
     /**
      * 计算隶属度函数
@@ -122,6 +121,12 @@ public class CaculateUtil {
             }
             evaluationResult.add(result);
         }
+        //归一化
+        Double sum = evaluationResult.get(0) + evaluationResult.get(1) + evaluationResult.get(2);
+        evaluationResult.set(0, evaluationResult.get(0) / sum);
+        evaluationResult.set(1, evaluationResult.get(1) / sum);
+        evaluationResult.set(2, evaluationResult.get(2) / sum);
+
         return evaluationResult.get(0) * resultPoint[0] + evaluationResult.get(1) * resultPoint[1] + evaluationResult.get(2) * resultPoint[2];
     }
 
